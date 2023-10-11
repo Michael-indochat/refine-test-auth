@@ -6,7 +6,7 @@
       "signup": "Anmelden",
       "divider": "oder",
       "fields": {
-        "email": "Email",
+        "username": "Username",
         "password": "Passwort"
       },
       "errors": {
