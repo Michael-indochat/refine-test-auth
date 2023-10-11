@@ -1,7 +1,6 @@
 import React from "react";
 import {
   LoginPageProps,
-  LoginFormTypes,
   useRouterType,
   useLink,
   useRouterContext,
@@ -32,6 +31,14 @@ import { FormProvider } from "react-hook-form";
 
 import { FormPropsType, ThemedTitleV2 } from "@refinedev/chakra-ui";
 import { cardProps, layoutProps } from "./styles";
+
+interface LoginFormTypes {
+  account?: string;
+  password?: string;
+  remember?: boolean;
+  providerName?: string;
+  redirectPath?: string;
+}
 
 type LoginProps = LoginPageProps<
   BoxProps,
@@ -142,19 +149,19 @@ export const LoginPage: React.FC<LoginProps> = ({
           return login(data);
         })}
       >
-        <FormControl mt="6" isInvalid={!!errors?.email}>
+        <FormControl mt="6" isInvalid={!!errors?.account}>
           <FormLabel htmlFor="account">
             {translate("pages.login.fields.username", "Username")}
           </FormLabel>
           <Input
             id="account"
-            placeholder="Account"
+            placeholder="Username"
             type="text"
-            {...register("email", {
+            {...register("account", {
               required: true,
             })}
           />
-          <FormErrorMessage>{`${errors.email?.message}`}</FormErrorMessage>
+          <FormErrorMessage>{`${errors.account?.message}`}</FormErrorMessage>
         </FormControl>
 
         <FormControl mt="6" isInvalid={!!errors?.password}>

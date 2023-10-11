@@ -20,7 +20,7 @@ import routerBindings, {
 import dataProvider from "@refinedev/simple-rest";
 import { useTranslation } from "react-i18next";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { authProvider } from "./authProvider";
+import { authProvider } from "./providers/authProvider";
 import { AppIcon } from "./components/app-icon";
 import { Header } from "./components/header";
 import {
