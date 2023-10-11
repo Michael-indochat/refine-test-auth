@@ -1,11 +1,26 @@
 import { AuthBindings } from "@refinedev/core";
+import axios from "axios";
 
 export const TOKEN_KEY = "refine-auth";
 
+axios.defaults.baseURL = 'https://admin-api-staging.indochat.net';
+// 假設的 apiLogin 函數
+async function apiLogin(account = 'michael', account_id = null, password, system_id = 1) {
+  try {
+    const response = await axios.post('/v1/admin-token', { account, account_id, password, system_id });
+    return response.data;
+  } catch (error) {
+    return { success: false, error };
+  }
+}
+
 export const authProvider: AuthBindings = {
-  login: async ({ username, email, password }) => {
-    if ((username || email) && password) {
-      localStorage.setItem(TOKEN_KEY, username);
+  login: async ({ account, account_id, password, system_id }) => {
+
+    const apiResult = await apiLogin(account, account_id, password, system_id);
+
+    if (apiResult) {
+      localStorage.setItem(TOKEN_KEY, account);
       return {
         success: true,
         redirectTo: "/",

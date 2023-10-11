@@ -1,5 +1,7 @@
-import { AuthPage, ThemedTitleV2 } from "@refinedev/chakra-ui";
+// import { AuthPage, ThemedTitleV2 } from "@refinedev/chakra-ui";
+import { ThemedTitleV2 } from "@refinedev/chakra-ui";
 import { AppIcon } from "../../components/app-icon";
+import { AuthPage } from "./AuthPage";
 
 export const Login = () => {
   return (
@@ -13,7 +15,7 @@ export const Login = () => {
         />
       }
       formProps={{
-        defaultValues: { email: "demo@refine.dev", password: "demodemo" },
+        defaultValues: { username: "michael", password: "0DoVHqJp" },
       }}
     />
   );
