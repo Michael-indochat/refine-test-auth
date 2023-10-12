@@ -1,4 +1,4 @@
-import { Authenticated, GitHubBanner, Refine } from "@refinedev/core";
+import { Authenticated, Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
@@ -50,7 +50,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GitHubBanner />
       <RefineKbarProvider>
         {/* You can change the theme colors here. example: theme={RefineThemes.Magenta} */}
         <ChakraProvider theme={RefineThemes.Blue}>
